@@ -1,0 +1,12 @@
+.header {
+  color: $color-white;
+  margin-bottom: 2rem;
+
+  .edit-button {
+    border-color: $color-green2;
+    background-color: $color-green2;
+    color: $color-white;
+    font-weight: bold;
+    padding: 10px;
+  }
+}

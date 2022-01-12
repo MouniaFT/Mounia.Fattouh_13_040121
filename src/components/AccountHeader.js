@@ -1,4 +1,4 @@
-export const AccountHeader = () => {
+const AccountHeader = () => {
   return (
     <div className="header">
       <h1>

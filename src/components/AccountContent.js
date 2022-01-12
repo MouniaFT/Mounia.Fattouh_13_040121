@@ -1,4 +1,4 @@
-export const AccountContent = ({ title, amount, description }) => {
+const AccountContent = ({ title, amount, description }) => {
   return (
     <section className="account">
       <div className="account-content-wrapper">

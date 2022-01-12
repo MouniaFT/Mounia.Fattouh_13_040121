@@ -17,10 +17,9 @@ function App() {
       <Route exact path="/login">
         <Login />
       </Route>
-      <Route exact path="/user">
+      <Route exact path="/profile">
         <User />
       </Route>
-      {/* <Counter /> */}
       <Footer />
     </Router>
   )

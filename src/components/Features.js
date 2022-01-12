@@ -21,7 +21,7 @@ const content = [
   },
 ]
 
-export const Features = () => {
+const Features = () => {
   return (
     <section className="features">
       <h2 className="sr-only">Features</h2>

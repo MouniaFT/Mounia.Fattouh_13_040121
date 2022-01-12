@@ -1,7 +1,7 @@
 import Hero from '../components/Hero'
 import Features from '../components/Features'
 
-export const Home = () => {
+const Home = () => {
   return (
     <main>
       <Hero />

@@ -1,4 +1,4 @@
-export const FeatureItem = ({ icon, title, text }) => {
+const FeatureItem = ({ icon, title, text }) => {
   return (
     <div className="feature-item">
       <img src={icon} alt="Chat Icon" className="feature-icon" />

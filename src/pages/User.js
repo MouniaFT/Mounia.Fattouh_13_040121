@@ -19,7 +19,7 @@ const account = [
   },
 ]
 
-export const User = () => {
+const User = () => {
   return (
     <main className="main bg-dark">
       <AccountHeader />

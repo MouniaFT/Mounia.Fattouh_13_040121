@@ -1,8 +1,9 @@
-// import { configureStore } from '@reduxjs/toolkit';
-// import counterReducer from '../features/counter/counterSlice';
+import { configureStore } from '@reduxjs/toolkit'
+import loginReducer from '../features/login/loginSlice'
 
-// export const store = configureStore({
-//   reducer: {
-//     counter: counterReducer,
-//   },
-// });
+export const store = configureStore({
+  reducer: {
+    loginReducer,
+  },
+  devTools: process.env.NODE_ENV !== 'production',
+})

@@ -1,7 +1,7 @@
 import logo from '../images/argentBankLogo.png'
 import { Link } from 'react-router-dom'
 
-export const Header = () => {
+const Header = () => {
   return (
     <nav className="main-nav">
       <Link to="/" className="main-nav-logo">

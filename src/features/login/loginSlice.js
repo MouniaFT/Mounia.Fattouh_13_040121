@@ -4,15 +4,21 @@ import { getLogin } from './fetchRequest'
 const initialState = {
   isLogin: false,
   isError: false,
+  token: '',
 }
 
 export const loginSlice = createSlice({
   name: 'login',
   initialState,
-  reducers: {},
+  reducers: {
+    getLoginOut: (state) => {
+      return (state = initialState)
+    },
+  },
   extraReducers: (builder) => {
-    builder.addCase(getLogin.fulfilled, (state) => {
+    builder.addCase(getLogin.fulfilled, (state, { payload }) => {
       state.isLogin = true
+      state.token = payload.body.token
     })
     builder.addCase(getLogin.rejected, (state) => {
       state.isLogin = false
@@ -22,5 +28,7 @@ export const loginSlice = createSlice({
 })
 
 export const loginSelector = (state) => state.login
+
+export const { getLoginOut } = loginSlice.actions
 
 export default loginSlice.reducer

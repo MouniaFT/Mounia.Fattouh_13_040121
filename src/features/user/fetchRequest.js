@@ -1,0 +1,27 @@
+import { createAsyncThunk } from '@reduxjs/toolkit'
+
+export const getUser = createAsyncThunk(
+  'user/getUser',
+  async ({ token }, thunkAPI) => {
+    try {
+      const res = await fetch('http://localhost:3001/api/v1/user/profile', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      })
+
+      const data = await res.json()
+      if (res.status === 200) {
+        return data
+      } else {
+        return thunkAPI.rejectWithValue(data)
+      }
+    } catch (e) {
+      console.log(e.res.data)
+      return thunkAPI.rejectWithValue(e.res.data)
+    }
+  }
+)

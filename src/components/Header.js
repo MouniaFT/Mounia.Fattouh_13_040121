@@ -6,6 +6,7 @@ import { getLoginOut } from '../features/login/loginSlice'
 const Header = () => {
   const dispatch = useDispatch()
   const { isLogin } = useSelector((state) => state.loginReducer)
+  const { firstName } = useSelector((state) => state.userReducer)
 
   return (
     <nav className="main-nav">
@@ -22,7 +23,7 @@ const Header = () => {
           <>
             <Link to="/profile" className="main-nav-item">
               <i className="fa fa-user-circle"></i>
-              Tony
+              {firstName}
             </Link>
             <Link
               to="/"

@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUser } from '../features/user/fetchRequest'
+import EditNameForm from './EditNameForm'
 
 const AccountHeader = () => {
   const dispatch = useDispatch()
   const { isLogin, token } = useSelector((state) => state.loginReducer)
   const { firstName, lastName } = useSelector((state) => state.userReducer)
+  const [isEditName, setEditName] = useState(false)
 
   useEffect(() => {
     if (isLogin) {
@@ -15,12 +17,26 @@ const AccountHeader = () => {
 
   return (
     <div className="header">
-      <h1>
-        Welcome back
-        <br />
-        {firstName} {lastName}!
-      </h1>
-      <button className="edit-button">Edit Name</button>
+      {!isEditName ? (
+        <>
+          <h1>
+            Welcome back
+            <br />
+            {firstName} {lastName}!
+          </h1>
+          <button className="edit-button" onClick={() => setEditName(true)}>
+            Edit Name
+          </button>
+        </>
+      ) : (
+        <EditNameForm
+          key={token}
+          token={token}
+          firstName={firstName}
+          lastName={lastName}
+          setEditName={setEditName}
+        />
+      )}
     </div>
   )
 }

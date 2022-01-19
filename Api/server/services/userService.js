@@ -2,7 +2,7 @@ const User = require('../database/models/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-module.exports.createUser = async serviceData => {
+module.exports.createUser = async (serviceData) => {
   try {
     const user = await User.findOne({ email: serviceData.email })
     if (user) {
@@ -15,7 +15,7 @@ module.exports.createUser = async serviceData => {
       email: serviceData.email,
       password: hashPassword,
       firstName: serviceData.firstName,
-      lastName: serviceData.lastName
+      lastName: serviceData.lastName,
     })
 
     let result = await newUser.save()
@@ -27,7 +27,7 @@ module.exports.createUser = async serviceData => {
   }
 }
 
-module.exports.getUserProfile = async serviceData => {
+module.exports.getUserProfile = async (serviceData) => {
   try {
     const jwtToken = serviceData.headers.authorization.split('Bearer')[1].trim()
     const decodedJwtToken = jwt.decode(jwtToken)
@@ -44,7 +44,7 @@ module.exports.getUserProfile = async serviceData => {
   }
 }
 
-module.exports.loginUser = async serviceData => {
+module.exports.loginUser = async (serviceData) => {
   try {
     const user = await User.findOne({ email: serviceData.email })
 
@@ -71,7 +71,7 @@ module.exports.loginUser = async serviceData => {
   }
 }
 
-module.exports.updateUserProfile = async serviceData => {
+module.exports.updateUserProfile = async (serviceData) => {
   try {
     const jwtToken = serviceData.headers.authorization.split('Bearer')[1].trim()
     const decodedJwtToken = jwt.decode(jwtToken)
@@ -79,7 +79,7 @@ module.exports.updateUserProfile = async serviceData => {
       { _id: decodedJwtToken.id },
       {
         firstName: serviceData.body.firstName,
-        lastName: serviceData.body.lastName
+        lastName: serviceData.body.lastName,
       },
       { new: true }
     )

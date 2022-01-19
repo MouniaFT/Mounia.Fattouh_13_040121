@@ -1,5 +1,7 @@
 import AccountContent from '../components/AccountContent'
 import AccountHeader from '../components/AccountHeader'
+import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router'
 
 const account = [
   {
@@ -20,6 +22,11 @@ const account = [
 ]
 
 const User = () => {
+  const { isLogin } = useSelector((state) => state.loginReducer)
+  if (!isLogin) {
+    return <Redirect to="/" />
+  }
+
   return (
     <main className="main bg-dark">
       <AccountHeader />

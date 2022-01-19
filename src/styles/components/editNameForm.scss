@@ -1,0 +1,19 @@
+.editNameForm {
+  .input-wrapper input {
+    padding: 8px;
+    margin: 5px;
+  }
+
+  .save-button,
+  .cancel-button {
+    padding: 8px;
+    margin: 5px;
+    min-width: 100px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: $color-green2;
+    border-color: $color-green2;
+    color: $color-white;
+  }
+}

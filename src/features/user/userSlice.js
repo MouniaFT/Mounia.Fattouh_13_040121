@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getUser } from './fetchRequest'
+import { getUser, updateUser } from './fetchRequest'
 
 const initialState = {
   firstName: '',
@@ -12,6 +12,10 @@ export const userSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getUser.fulfilled, (state, { payload }) => {
+      state.firstName = payload.body.firstName
+      state.lastName = payload.body.lastName
+    })
+    builder.addCase(updateUser.fulfilled, (state, { payload }) => {
       state.firstName = payload.body.firstName
       state.lastName = payload.body.lastName
     })

@@ -1,0 +1,167 @@
+swagger: '2.0'
+info:
+  title: Bank Argent API documentation
+  description: Contains all available API endpoints for accounts and transactions
+  version: '1.0.0'
+  termsOfService: 'http://swagger.io/terms/'
+host: localhost:3001
+basePath: /api/v1
+schemes:
+  - http
+paths:
+  /accounts/{accountTypeId}/transactions:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - User Account Transactions
+      summary: User Account Transactions API
+      description: API for fetching a account transactions
+      parameters:
+        - in: path
+          name: accountTypeId
+          description: the id of the account from where the transactions should be retrieved
+          required: true
+          type: string
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Account transactions retrieved Successfully
+          schema:
+            $ref: '#/definitions/Transactions'
+        '400':
+          description: Invalid Token
+        '500':
+          description: Internal Server Error
+  /accounts/{accountTypeId}/transactions/{transactionId}:
+    get:
+      tags:
+        - Transaction Details
+      summary: Transaction Details API
+      description: Details of the selected transaction
+      parameters:
+        - in: path
+          name: transactionId
+          description: the id of the transaction from where the details should be retrieved
+          required: true
+          type: string
+        - in: path
+          name: accountTypeId
+          description: the id of the account from where the transactions should be retrieved
+          required: true
+          type: string
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Details of transaction retrieved Successfully
+          schema:
+            $ref: '#/definitions/TransactionDetails'
+        '400':
+          description: Invalid Token
+        '500':
+          description: Internal Server Error
+    put:
+      tags:
+        - Transaction Details
+      summary: Update transaction details
+      description: Update details of the selected transaction
+      parameters:
+        - in: path
+          name: transactionId
+          description: the id of the transaction from where the details should be retrieved
+          required: true
+          type: string
+        - in: path
+          name: accountTypeId
+          description: the id of the account from where the transactions should be retrieved
+          required: true
+          type: string
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          type: string
+          required: true
+        - in: body
+          name: body
+          description: Details to update
+          required: true
+          schema:
+            type: 'object'
+            properties:
+              category:
+                type: 'string'
+              notes:
+                type: 'string'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transaction updated successfully
+          schema:
+            $ref: '#/definitions/TransactionDetails'
+        '400':
+          description: Invalid Token
+        '500':
+          description: Internal Server Error
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+definitions:
+  Transactions:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: array
+        items:
+          type: object
+          properties:
+            accountId:
+              type: integer
+            transactionId:
+              type: integer
+            date:
+              type: string
+            description:
+              type: string
+            amount:
+              type: integer
+            balance:
+              type: integer
+  TransactionDetails:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+          transactionId:
+            type: integer
+          transactionType:
+            type: string
+          category:
+            type: string
+          notes:
+            type: string
+          balance:
+            type: integer

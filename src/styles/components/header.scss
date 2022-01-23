@@ -11,6 +11,15 @@
     &.router-link-exact-active {
       color: $color-green1;
     }
+
+    & i {
+      margin-right: 5px;
+    }
+  }
+
+  &-logo {
+    display: flex;
+    align-items: center;
   }
 
   &-logo-image {

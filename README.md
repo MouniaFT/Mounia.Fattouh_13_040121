@@ -1,44 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Projet 13 : ARGENTBANK , Use an API for a bank user account with React
 
-## Available Scripts
+This repo contains all the source code to run the frontend and backend for Argent Bank.
 
-In the project directory, you can run:
+This project was created with `Create React App`.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [NodeJS](https://nodejs.org/en/) v14.15.3
+- [npm](https://www.npmjs.com/) v6.14.9
+- [VSCode](https://code.visualstudio.com/download) is recommended
+- [MongoDB Community Server](https://www.mongodb.com/try/download/community)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Launching the Project
 
-### `npm test`
+- Fork the repository
+- Clone it on your computer.
+- The `npm install` command will allow you to install the dependencies.
+- The `npm install` in the api folder command will allow you to install the dependencies of micro API.
+- The `npm run dev:server` command will allow you to run the micro API.
+- The `npm run populate-db` populate database with two users
+- The `npm start` command will allow you to run project in `http://localhost:3000` .
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Populated Database Data
 
-### `npm run build`
+Once you run the `populate-db` script, you should have two users in your database:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Tony Stark
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- First Name: `Tony`
+- Last Name: `Stark`
+- Email: `tony@stark.com`
+- Password: `password123`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Steve Rogers
 
-### `npm run eject`
+- First Name: `Steve`,
+- Last Name: `Rogers`,
+- Email: `steve@rogers.com`,
+- Password: `password456`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## API Documentation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+To learn more about how the API works, once you have started your local environment, you can visit: http://localhost:3001/api-docs

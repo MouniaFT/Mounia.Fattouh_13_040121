@@ -1,19 +1,40 @@
 .editNameForm {
   .input-wrapper input {
-    padding: 8px;
-    margin: 5px;
+    // padding: 8px;
+    // margin: 5px;
+    margin: 0px 8px;
+    border-radius: 3px;
+    height: 30px;
+    max-width: 150px;
+    padding-left: 10px;
+    border: 1px solid $color-grey3;
+
+    &::placeholder {
+      color: $color-grey3;
+    }
   }
 
   .save-button,
   .cancel-button {
-    padding: 8px;
-    margin: 5px;
-    min-width: 100px;
-    text-align: center;
+    // padding: 8px;
+    // margin: 5px;
+    // min-width: 100px;
+    // text-align: center;
+    // font-weight: bold;
+    // cursor: pointer;
+    // background-color: $color-green2;
+    // border-color: $color-green2;
+    // color: $color-white;
+    border: 2px solid $color-purple2;
+    background-color: #fffefe;
+    color: $color-purple1;
     font-weight: bold;
+
+    padding: 5px 25px;
+    min-width: 98px;
+    margin: 10px 8px;
+    border-radius: 2px;
+    transition: 0.5s all;
     cursor: pointer;
-    background-color: $color-green2;
-    border-color: $color-green2;
-    color: $color-white;
   }
 }

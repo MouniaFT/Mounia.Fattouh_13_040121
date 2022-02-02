@@ -7,6 +7,7 @@ import './styles/index.scss'
 import { store } from './app/store'
 import { Provider } from 'react-redux'
 
+//Adding the Provider to connect the application to the store.
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -28,7 +28,7 @@ const User = () => {
   }
 
   return (
-    <main className="main bg-dark">
+    <main className="main bg-grey">
       <AccountHeader />
       <h2 className="sr-only">Accounts</h2>
       {account.map(({ title, amount, description }) => (

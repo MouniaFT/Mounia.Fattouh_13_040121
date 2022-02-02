@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid $color-black1;
+  border: 1px solid $color-grey3;
   background-color: $color-white;
   width: 80%;
   margin: 0 auto;
@@ -37,12 +37,15 @@
   .transaction-button {
     display: block;
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     font-size: 1.1rem;
     font-weight: bold;
     margin-top: 1rem;
-    border-color: $color-green2;
-    background-color: $color-green2;
+    // border-color: $color-green2;
+    // background-color: $color-green2;
+    border: none;
+    background-color: $color-purple1;
+    border-radius: 3px;
     color: $color-white;
   }
 
